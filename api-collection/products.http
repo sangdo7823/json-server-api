@@ -1,0 +1,59 @@
+@baseUrl = http://localhost:3000/api 
+@resourceName=products
+# Products
+
+# @name getAll
+GET {{baseUrl}}/{{resourceName}}
+###
+
+# @name filter
+GET {{baseUrl}}/{{resourceName}}?price_lte=30
+
+###
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&limit=10
+
+###
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&_sort=price&_order=desc
+
+
+
+###
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=desc
+
+
+
+###
+
+# @name addNew
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+    "categoryId": "c77ff78f-89c4-4e48-bdf2-a33cd18d5b41", 
+    "name": "Incredible Granite Shirt 5",
+    "color": "silver",
+    "price": 50,
+    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "thumbnailUrl": "https://loremflickr.com/40/30"
+}
+###
+
+# @name update
+PATCH  {{baseUrl}}/{{resourceName}}/c5Zv3wp
+Content-Type: application/json
+
+{
+    "categoryId": "c77ff78f-89c4-4e48-bdf2-a33cd18d5b41", 
+    "name": "Incredible Granite Shirt 51",
+    "color": "white",
+    "price": 50.19,
+    "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+    "thumbnailUrl": "https://loremflickr.com/40/30"
+}
+###
+
+# @name remove
+DELETE   {{baseUrl}}/{{resourceName}}/3
