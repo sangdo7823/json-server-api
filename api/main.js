@@ -28,8 +28,8 @@ server.use((req, res, next) => {
 router.render = (req, res) => {
     const header = res.getHeaders();
     const totalCount = header['x-total-count'];
- 
-    const pairs = req._parsedUrl.query.split('&');
+    
+    const pairs = (req._parsedUrl.query || '').split('&');
 
     const queryParams = pairs.reduce((acc, pair) => {
         const [key, value] = pair.split('=');
@@ -52,7 +52,7 @@ router.render = (req, res) => {
     })
 }
 // Use default router
-server.use("/api", router)
+server.use(router)
 server.listen(3000, () => {
     console.log('JSON Server is running')
 })

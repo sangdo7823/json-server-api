@@ -2,11 +2,11 @@
   "name": "json-server",
   "version": "1.0.0",
   "description": "demo json-server",
-  "main": "main.js",
+  "main": "api/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon main.js",
-    "start": "npm run generate-data && node main.js",
+    "dev": "nodemon api/main.js",
+    "start": "npm run generate-data && node api/main.js",
     "generate-data": "node generate-data.js"
   },
   "keywords": [
